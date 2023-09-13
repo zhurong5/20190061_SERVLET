@@ -13,8 +13,8 @@
             
             <img src="image\bbback.png" class="card-img" alt="...">
             <div class="card-img-overlay">
-                <h5 class="card-title">그래픽 카드 이벤트</h5>
-                <p class="card-text">출처 : 다나와</p>
+                <h5 class="card-title">2023 S/W</h5>
+                <p class="card-text">SALE</p>
             </div>
         </div>
         <div class="list-group">

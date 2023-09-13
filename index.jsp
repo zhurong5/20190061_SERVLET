@@ -1,10 +1,15 @@
 <%@ page contentType = "text/html;charset=utf-8" %> <%-- 페이지 지시자 --%>
 <%@ page import="example.*" %> 
 <%@ page import="java.util.Date"%>
+<%@ page buffer="1kb" autoFlush="true"%>
+
 <%
     HelloWorld h = new HelloWorld();
 %>
 <%-- 자바는 하나의 함수라도 클래스로 만들어야 함 --%>
+<script>
+	window.open("popup/popup1.jsp", "popup", "width=365, height = 250, left = 0, top=0")
+</script>
 
 <html>
     <head>
@@ -20,5 +25,8 @@
         <%@ include file="top_menu.jsp" %>
         <%@ include file="body_main.jsp" %>
         <%@ include file="footer.jsp" %>
+        
+        현재 페이지 버퍼 용량 : <%= out.getBufferSize() %> <br>
+        남은 페이지 버퍼 용량 : <%= out.getRemaining() %>
     </body>
 </html>

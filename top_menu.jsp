@@ -8,7 +8,9 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             
-            <a class="dropdown-item" href="#">CPU</a>
+            <a class="dropdown-item" href="#">TOP</a>
+            <a class="dropdown-item" href="#">BOTTOM</a>
+            <a class="dropdown-item" href="#">OUTTER</a>
         </div>
     </div>
     <div>
@@ -19,9 +21,10 @@
             <div class="navbar-header">
                 
                 <a class="navbar-brand" href="./index.jsp">메뉴바 : 홈페이지</a>
-                <a class="navbar-brand" herf="./index.jsp">로그인</a>
-                <a class="navbar-brand" herf="./index.jsp">회원가입</a>
-                <a class="navbar-brand" herf="./index.jsp">고객센터</a>
+                <a class="navbar-brand" herf="./index.jsp">LOGIN</a>
+                <a class="navbar-brand" herf="./index.jsp">COLLECTION</a>
+                <a class="navbar-brand" herf="./index.jsp">NEW ARRIVALS</a>
+                <a class="navbar-brand" herf="./index.jsp">ABOUT US</a>
             </div>
         </div>
         </nav>
