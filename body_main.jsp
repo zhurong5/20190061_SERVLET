@@ -16,27 +16,7 @@
         </div>
     </div>
 </div>
-<br><br><br>
-<%
-	ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
-%> 	
-<div class="container">
-    <div class="row" align="center">
-        <%
-            for(int i = 0;i<listOfProducts.size();i++){
-            Product product = listOfProducts.get(i);           
-        %>
-    <div class="col-md-4">
-        <h3><%=product.getPname()%></h3>
-		<p><%=product.getDescription()%>
-		<p><%=product.getUnitPrice()%>원
-    </div>
-        <%
-            }
-        %>
-    </div>
-    <hr>
-</div>
+<br><br>
 
         <div class="card bg-dark text-white">
             
@@ -46,6 +26,38 @@
                 <p class="card-text">₩1,550,000부터</p>
             </div>
         </div>
+<br><br><br>
+<%
+	ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
+%> 	
+<div class="container">
+    <div class="row" align="center">
+        <%
+            for(int i = 0;i<listOfProducts.size();i++){
+            Product product = listOfProducts.get(i);
+            int unitPrice = product.getUnitPrice();
+            String formattedPrice = String.format("%,d", unitPrice); // 가격을 쉼표로 구분하여 형식화
+        %>
+    <div class="col-md-4">
+        <div class="card bg-white text-white border-0">
+            <img src="image/product/<%=product.getProductId()%>.jpg" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        <br>
+        <h3><%=product.getPname()%></h3>
+        <p><%=product.getDescription()%></p>
+        <p><%=formattedPrice%> 부터</p> <!-- 형식화된 가격을 출력 -->
+    </div>
+        <%
+            }
+        %>
+    </div>
+    <hr>
+</div>
+
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">최신 제품. 따끈따끈한 신제품 이야기.</a>
             <a href="#" class="list-group-item list-group-item-action">모든 모델. 당신의 선택은?</a>
