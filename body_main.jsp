@@ -1,14 +1,43 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="dto.Product"%>
+<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
 
 <%! String greeting = "<span style='font-size: 40px;'><strong>스토어</strong>. 좋아하는 Apple 제품을<br>구입하는 가장 좋은 방법.";
         String tagline = "AppleKorea";%>
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-3">
-                    <%=greeting%>
-                </h1>
-            </div>
+<br><br>
+<div class="container">
+    
+    <div class="jumpbotron">
+        <div class="container">
+            <h3 class="display-4">
+                <%=greeting%>
+            </h3>
         </div>
+    </div>
+</div>
+<br><br><br>
+<%
+	ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
+%> 	
+<div class="container">
+    <div class="row" align="center">
+        <%
+            for(int i = 0;i<listOfProducts.size();i++){
+            Product product = listOfProducts.get(i);           
+        %>
+    <div class="col-md-4">
+        <h3><%=product.getPname()%></h3>
+		<p><%=product.getDescription()%>
+		<p><%=product.getUnitPrice()%>원
+    </div>
+        <%
+            }
+        %>
+    </div>
+    <hr>
+</div>
+
         <div class="card bg-dark text-white">
             
             <img src="image\iPhone15pro_allcolor.jpg" class="card-img" alt="...">
