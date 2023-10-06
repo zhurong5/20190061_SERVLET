@@ -7,8 +7,11 @@
 </style>
 <nav class="navbar navbar-expand navbar-white bg-white">
     <div>
-        <img src="image\apple_logo_icon_168588.png" class="img-fluid" alt="main_image">
+        <a href="./index.jsp">
+            <img src="image\apple_logo_icon_168588.png" class="img-fluid" alt="main_image">
+        </a>
     </div>
+
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="./index.jsp">스토어</a>

@@ -21,10 +21,9 @@
     </head>
     <body>
         <%--메시지는 = <%=h.hello() %> 입니다--%>
-        <%-- include file="top_banner.jsp" --%>
-        <%@ include file="top_menu.jsp" %>
-        <%@ include file="body_main.jsp" %>
-        <%@ include file="footer.jsp" %>
+        <%@ include file="top_menu_ad.jsp" %>
+        <%@ include file="body_main_ad.jsp" %>
+        <%@ include file="footer_ad.jsp" %>
         
         현재 페이지 버퍼 용량 : <%= out.getBufferSize() %> <br>
         남은 페이지 버퍼 용량 : <%= out.getRemaining() %>

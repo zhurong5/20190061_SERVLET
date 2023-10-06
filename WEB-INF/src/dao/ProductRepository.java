@@ -5,6 +5,11 @@ import dto.Product;
 public class ProductRepository {
 
 	private ArrayList<Product> listOfProducts = new ArrayList<Product>(); // ArrayList를 Product로 캐스팅
+    private static ProductRepository instance = new ProductRepository();
+
+    public static ProductRepository getInstance() {
+        return instance;
+    }
 
 	public ProductRepository() {
         Product iphone15Pro = new Product("P1234", "iPhone 15 Pro", 1550000); // 제품 객체를 생성하고 초기화합니다. (제품코드/제품이름/가격)
@@ -60,5 +65,8 @@ public class ProductRepository {
             }
         }
         return productById;
+    }
+    public void addProduct(Product product) {
+        listOfProducts.add(product);
     }
 }
