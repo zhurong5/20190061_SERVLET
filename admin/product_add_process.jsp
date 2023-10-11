@@ -1,18 +1,35 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
+<%@ page import="com.oreilly.servlet.*"%>
+<%@ page import="com.oreilly.servlet.multipart.*"%>
+<%@ page import="java.util.Enumeration" %>
+
+<%@ page import="java.io.File" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.nio.file.Files" %>
+<%@ page import="java.nio.file.StandardCopyOption" %>
 
 <%
     request.setCharacterEncoding("UTF-8");
 
-    String productId = request.getParameter("productId");
-    String name = request.getParameter("name");
-    String unitPrice = request.getParameter("unitPrice");
-    String description = request.getParameter("description");
-    String manufacturer = request.getParameter("manufacturer");
-    String category = request.getParameter("category");
-    String unitsInStock = request.getParameter("unitsInStock");
-    String condition = request.getParameter("condition");
+    String filename = "";
+    String realFolder = request.getServletContext().getRealPath("image/product"); // 기본 경로
+    String adminFolder = request.getServletContext().getRealPath("admin/image/product"); // 관리자 폴더 경로
+    String encType = "utf-8"; // 인코딩 타입
+    int maxSize = 5 * 1024 * 1024; // 최대 업로드될 파일의 크기 5MB
+
+    DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+    MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, policy);
+
+    String productId = multi.getParameter("productId");
+	String name = multi.getParameter("name");
+	String unitPrice = multi.getParameter("unitPrice");
+	String description = multi.getParameter("description");
+	String manufacturer = multi.getParameter("manufacturer");
+	String category = multi.getParameter("category");
+	String unitsInStock = multi.getParameter("unitsInStock");
+	String condition = multi.getParameter("condition");
 
     Integer price;
 
@@ -28,6 +45,22 @@
     else
         stock = Long.valueOf(unitsInStock);
 
+    Enumeration files = multi.getFileNames();
+	String fname = (String) files.nextElement();
+	String fileName = multi.getFilesystemName(fname);
+
+    // 파일을 두 폴더에 복사
+    File originalFile = new File(realFolder, fileName);
+    File adminFile = new File(adminFolder, fileName);
+
+    if (originalFile.exists() && originalFile.isFile()) {
+        try {
+            Files.copy(originalFile.toPath(), adminFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     ProductRepository dao = ProductRepository.getInstance(); // dao 객체에 새로운 객체
 
     Product newProduct = new Product();
@@ -39,6 +72,7 @@
     newProduct.setCategory(category);
     newProduct.setUnitsInStock(stock);
     newProduct.setCondition(condition);
+    newProduct.setFilename(fileName);
 
     dao.addProduct(newProduct);
 

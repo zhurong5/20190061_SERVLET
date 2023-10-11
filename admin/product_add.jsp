@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="container"> <!-- 폼 적용 // action -> 등록 버튼을 누르면 jsp로 보내주어야 함. (REQUEST 객체) | .은 절대경로 -->
-        <form name="newProduct" action="./product_add_process.jsp" class="form-horizontal" method="post">
+        <form name="newProduct" action="product_add_process.jsp" class="form-horizontal" method="post" enctype ="multipart/form-data">
             <div class="form-group row">
                 <label class="col-sm-2">상품 코드</label>
                 <div class="col-sm-3">
@@ -64,6 +64,12 @@
                     <input type="radio" name="condition" value="New"> 신규 제품
                     <input type="radio" name="condition" value="Old"> 중고 제품
                     <input type="radio" name="condition" value="Refurbished"> 재생 제품
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2">이미지</label>
+                <div class="col-sm-5">
+                    <input type="file" name="productImage" class="form-control">
                 </div>
             </div>
             <div class="form-group row">

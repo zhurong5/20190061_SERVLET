@@ -24,7 +24,7 @@
     ProductRepository dao = ProductRepository.getInstance(); // dao 객체에 따로 저장
     ArrayList<Product> listOfProducts = dao.getAllProducts();
 %>
-//기존에는 미리 객체에 값을 먼저 넣어놓고 출력해주었다면, 해당 코드에서는 사용자로부터 입력을 받으면 dao에 넣어 출력해주는 방식
+<%--기존에는 미리 객체에 값을 먼저 넣어놓고 출력해주었다면, 해당 코드에서는 사용자로부터 입력을 받으면 dao에 넣어 출력해주는 방식--%>
 
 <br><br>
 
@@ -48,7 +48,7 @@
         %>
         <div class="col-md-4">
             <div class="card bg-white text-white border-0">
-                <img src="../image/product/<%=product.getProductId()%>.jpg" class="card-img" alt="...">
+                <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <h5 class="card-title"></h5>
                     <p class="card-text"></p>

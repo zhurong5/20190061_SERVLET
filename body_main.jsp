@@ -1,7 +1,7 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Product" %>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
+<%@ page import="dao.ProductRepository" %>
 
 <%! 
     String greeting = "<span style='font-size: 40px;'><strong>스토어</strong>. 좋아하는 Apple 제품을<br>구입하는 가장 좋은 방법.";
@@ -33,7 +33,12 @@
 <br><br><br>
 
 <%
-ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
+//ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
+%>
+
+<%
+    ProductRepository dao = ProductRepository.getInstance(); // dao 객체에 따로 저장
+    ArrayList<Product> listOfProducts = dao.getAllProducts();
 %>
 
 <div class="container">
@@ -46,7 +51,7 @@ ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에
         %>
         <div class="col-md-4">
             <div class="card bg-white text-white border-0">
-                <img src="image/product/<%=product.getProductId()%>.jpg" class="card-img" alt="...">
+                <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <h5 class="card-title"></h5>
                     <p class="card-text"></p>

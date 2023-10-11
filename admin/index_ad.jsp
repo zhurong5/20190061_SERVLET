@@ -7,9 +7,6 @@
     HelloWorld h = new HelloWorld();
 %>
 <%-- 자바는 하나의 함수라도 클래스로 만들어야 함 --%>
-<script>
-	window.open("popup/popup1.jsp", "popup", "width=365, height = 250, left = 0, top=0")
-</script>
 
 <html>
     <head>

@@ -18,13 +18,16 @@ public class ProductRepository {
 		iphone15Pro.setManufacturer("Apple");     // 제품 제조사를 설정합니다.
 		iphone15Pro.setUnitsInStock(1000);        // 제품의 재고 수량을 설정합니다.
 		iphone15Pro.setCondition("New");          // 제품 상태를 설정합니다. New/Refurbished/Old
-        
+        iphone15Pro.setFilename("P1234.jpg");
+
         Product phone15 = new Product("P1235", "iPhone 15", 1250000); 
         phone15.setDescription("17.0cm, Super Retina XDR display, 첨단 듀얼 카메라 시스템");
         phone15.setCategory("Smart Phone");
         phone15.setManufacturer("Apple");
         phone15.setUnitsInStock(1000);
         phone15.setCondition("New");
+        phone15.setFilename("P1235.jpg");
+
 
 		Product iphone14 = new Product("P1236", "iPhone 14", 1090000);
 		iphone14.setDescription("17.0cm, Super Retina XDR display, 듀얼 카메라 시스템");
@@ -32,13 +35,16 @@ public class ProductRepository {
 		iphone14.setManufacturer("Apple");
 		iphone14.setUnitsInStock(1000);
 		iphone14.setCondition("Old");
-        
+        iphone14.setFilename("P1236.jpg");
+
         Product ipadPro = new Product("P1237", "iPad Pro", 1249000);
 		ipadPro.setDescription("32.8cm, Liquid Retina XDR display, M2 칩");
 		ipadPro.setCategory("tablet");
 		ipadPro.setManufacturer("Apple");
 		ipadPro.setUnitsInStock(1000);
 		ipadPro.setCondition("New");
+        ipadPro.setFilename("P1237.jpg");
+
 		
 		// 위와 같이 상품 초기화 하고 아래에 상품을 추가
 
