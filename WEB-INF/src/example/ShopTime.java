@@ -1,20 +1,23 @@
-package example;
-import java.util.Date; // 날짜 관련 정보 얻기
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+import java.util.Calendar;
 
 public class ShopTime {
     public String timenow() {
-        Date day = new java.util.Date();
-        String am_pm;
-        int hour = day.getHours(); // 시간
-        int minute = day.getMinutes(); // 분
-        int second = day.getSeconds(); // 초
-        if (hour / 12 == 0) {
-            am_pm = "AM"; // 오전 판단
-        } else {
-            am_pm = "PM"; // 오후 판단
-            hour = hour - 12;
-        }
-        String CT = hour + ":" + minute + ":" + second + " " + am_pm; // 출력 문자열 조합
-        return CT; // 문자열 리턴
+        // 한국 시간대 설정
+        TimeZone seoulTimeZone = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar calendar = Calendar.getInstance(seoulTimeZone);
+        calendar.add(Calendar.HOUR, 9); // 현재 시간에 9시간을 추가
+
+        // 조정된 시간을 가져옵니다
+        Date koreanTime = calendar.getTime();
+
+        // 원하는 형식으로 시간을 포맷합니다
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+        sdf.setTimeZone(seoulTimeZone);
+        String formattedTime = sdf.format(koreanTime);
+
+        return formattedTime; // 조정된 한국 시간을 문자열로 반환
     }
 }
