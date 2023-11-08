@@ -53,7 +53,7 @@
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2">배송지</label>
-                    <div>
+                    <div class="col-sm-3">
                         <input type="text" id="sample4_postcode" placeholder="우편번호" name="zipCode">
                         <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
                         <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
