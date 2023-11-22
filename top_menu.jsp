@@ -15,6 +15,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="./index.jsp">스토어</a>
+            <a class="navbar-brand" href="index.jsp">상품목록(기본 홈)</a>
             <a class="navbar-brand" href="https://www.apple.com/kr/ipad/" target="_blank">iPad</a>
             <a class="navbar-brand" href="./index.jsp" target="_blank">iPhone</a>
             <a class="navbar-brand" href="./index.jsp" target="_blank">Watch</a>
