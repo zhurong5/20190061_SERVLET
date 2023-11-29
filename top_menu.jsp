@@ -20,7 +20,7 @@
             <a class="navbar-brand" href="./index.jsp" target="_blank">iPhone</a>
             <a class="navbar-brand" href="./index.jsp" target="_blank">Watch</a>
             <a class="navbar-brand" href="./index.jsp" target="_blank">AirPods</a>
-            <a class="navbar-brand" href="./index.jsp" target="_blank">고객지원</a>
+            <a class="navbar-brand" href="/BoardListAction.do?pageNum=1">고객지원</a>
             <a class="navbar-brand" href="admin/index_ad.jsp">관리자모드</a>
         </div>
     </div>
